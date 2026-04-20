@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HANGOVR 180 | WHAT'S INSIDE</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet"/>
+<link href="global.css" rel="stylesheet"/>
+<style>
+.builtfor{position:relative;width:100%;min-height:50vh;background:#2c322f;overflow:hidden;display:flex;align-items:center;padding:4rem 2rem}
+.builtfor__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.6}
+.builtfor__text{position:relative;z-index:2;font-size:clamp(4rem,12vw,10rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.04em;line-height:0.85;color:#FFD800}
+
+/* S2: Real Science section (replaces old patent pending) */
+.realscience{background:#FFD800;padding:6rem 2rem;position:relative;overflow:hidden}
+.realscience__deco-1{position:absolute;top:0;right:0;width:8rem;height:8rem;background:#C7084F;transform:translate(2rem,-4rem)}
+.realscience__deco-2{position:absolute;bottom:0;left:0;width:12rem;height:3rem;background:#2c322f;transform:translate(-1.5rem,1.5rem) rotate(45deg)}
+.realscience__inner{max-width:80rem;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:2}
+.realscience__headline{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#2c322f;line-height:1;margin-bottom:3rem}
+.realscience__lines{display:flex;flex-direction:column;gap:0.5rem;align-items:center}
+.realscience__line{font-size:clamp(1rem,2vw,1.25rem);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#2c322f}
+.realscience__patent{font-size:clamp(1rem,2vw,1.25rem);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#C7084F;margin-top:1.5rem}
+
+.clinical{background:#ffffff;padding:4rem 2rem}
+.clinical__grid{display:grid;grid-template-columns:1fr;border:8px solid #2c322f;max-width:32rem;margin:0 auto}
+.clinical__card{padding:2rem 2.5rem;display:flex;flex-direction:column;justify-content:space-between;border-bottom:8px solid #2c322f;min-width:0}
+.clinical__card:last-child{border-bottom:none}
+.clinical__card:nth-child(2){background:#eaefeb}
+.clinical__tag{display:inline-block;background:#C7084F;color:#fff;padding:0.25rem 0.75rem;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:1.25rem;align-self:flex-start}
+.clinical__name{font-size:clamp(2rem,5vw,3.25rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;margin-bottom:0.75rem;color:#2c322f}
+.clinical__desc{font-size:0.9375rem;line-height:1.5;color:#5a605c;margin-bottom:1.25rem}
+.clinical__label{font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#C7084F;margin-top:auto}
+
+.product{background:#d6dbd7;padding:6rem 2rem}
+.product__frame{display:flex;flex-direction:column;border:12px solid #2c322f;overflow:hidden}
+.product__image{overflow:hidden;max-height:24rem}
+.product__image img{width:100%;height:100%;object-fit:cover;object-position:center}
+.product__content{padding:3rem;background:#2c322f;color:#FFD800;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.product__headline{font-size:clamp(3rem,6vw,3.75rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;margin-bottom:2rem;line-height:1;overflow-wrap:break-word;word-break:break-word}
+.product__body{font-size:clamp(1.25rem,2.5vw,1.5rem);margin-bottom:3rem;font-weight:600;line-height:1.5;color:#dee4df}
+
+/* Landscape */
+@media(orientation:landscape) and (max-height:500px){.builtfor{min-height:70vh}.builtfor__text{font-size:clamp(2.5rem,8vw,5rem)}}
+
+/* Headline protection below 1400 */
+@media(max-width:1399px){
+  .product__headline{font-size:clamp(2rem,4vw,3rem)}
+}
+
+/* 768px — product side-by-side, wider card column */
+@media(min-width:768px){
+  .clinical{padding:6rem 2rem}
+  .clinical__grid{max-width:40rem}
+  .product__frame{flex-direction:row}
+  .product__image{width:50%;max-height:none;min-height:25rem}
+  .product__content{width:50%;padding:4rem}
+}
+
+/* 1024px — padding increase, clinical stays 1-col but wider */
+@media(min-width:1024px){
+  .realscience{padding:6rem}
+  .clinical{padding:6rem}
+  .clinical__grid{max-width:36rem}
+  .builtfor{padding:6rem}
+  .product{padding:6rem}
+}
+
+/* 1200px — 3-col clinical: cards ~325px+ wide, square is safe */
+@media(min-width:1200px){
+  .clinical__grid{grid-template-columns:1fr 1fr 1fr;max-width:80rem}
+  .clinical__card{border-bottom:none;border-right:8px solid #2c322f;padding:2rem;aspect-ratio:1}
+  .clinical__card:nth-child(2){border-bottom:none;border-right:8px solid #2c322f}
+  .clinical__card:last-child{border-right:none}
+  .clinical__name{font-size:clamp(1.75rem,2.2vw,2.75rem)}
+  .clinical__desc{font-size:0.875rem;line-height:1.4;margin-bottom:1rem}
+  .clinical__tag{margin-bottom:1rem}
+}
+
+/* 1400px — cards big enough to breathe, product content padding */
+@media(min-width:1400px){
+  .clinical__card{padding:3rem}
+  .clinical__desc{font-size:1rem}
+  .product__image{min-height:37.5rem}
+  .product__content{padding:6rem}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav__logo"><img src="images/logo.svg" alt="HANGOVR 180"/></a>
+  <div class="nav__links"><a href="doa180.html" class="nav__link">DO A 180<span class="nav__clarifier">How does it work?</span></a><a href="whos-in.html" class="nav__link">TOMORROW PEOPLE<span class="nav__clarifier">Who is it for?</span></a><a href="inside.html" class="nav__link nav__link--active">WHAT'S INSIDE<span class="nav__clarifier">Ingredients</span></a><a href="find-us.html" class="nav__link">FIND US<span class="nav__clarifier">Store finder</span></a><a href="stock-up.html" class="nav__link">STOCK UP<span class="nav__clarifier">Check out the shop</span></a></div>
+  <button class="nav__mobile-btn" aria-label="Open menu" onclick="document.getElementById('mm').classList.toggle('is-open');var o=document.getElementById('mm').classList.contains('is-open');this.setAttribute('aria-label',o?'Close menu':'Open menu')"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+</nav>
+<div id="mm" class="mobile-menu"><a href="index.html">HOME</a><span class="mobile-menu__sub"></span><a href="doa180.html">DO A 180</a><span class="mobile-menu__sub">How does it work?</span><a href="whos-in.html">TOMORROW PEOPLE</a><span class="mobile-menu__sub">Who is it for?</span><a href="inside.html">WHAT'S INSIDE</a><span class="mobile-menu__sub">Ingredients</span><a href="find-us.html">FIND US</a><span class="mobile-menu__sub">Store finder</span><a href="stock-up.html">STOCK UP</a><span class="mobile-menu__sub">Check out the shop</span></div>
+<main>
+<section class="builtfor"><picture><source media="(max-width:767px)" srcset="images/hero-builtforbefore-mobile-portrait.webp"/><source media="(max-width:1023px) and (orientation:landscape)" srcset="images/hero-builtforbefore-mobile-landscape.webp"/><img src="images/hero-builtforbefore-desktop.webp" alt="Golden sparkle light effect" class="builtfor__img"/></picture><h2 class="builtfor__text">BUILT FOR<br/>BEFORE.</h2></section>
+
+<section class="realscience">
+  <div class="realscience__deco-1"></div>
+  <div class="realscience__deco-2"></div>
+  <div class="realscience__inner">
+    <h2 class="realscience__headline">Real Science. Three ingredients. Nothing else.</h2>
+    <div class="realscience__lines">
+      <span class="realscience__line">No fillers. No synthetic uppers.</span>
+      <span class="realscience__line">No bullshit &ldquo;hidden blends.&rdquo;</span>
+      <span class="realscience__line">Just 3 science-backed molecules that work.</span>
+    </div>
+    <p class="realscience__patent">Patent Pending</p>
+  </div>
+</section>
+
+<section class="clinical"><div class="clinical__grid">
+  <div class="clinical__card"><div><span class="clinical__tag">Ingredient 01</span><h2 class="clinical__name">DHM</h2><p class="clinical__desc">The most studied ingredient in the category. We use 1,500mg - a clinical-grade dose. Most brands use a fraction of that. We didn't.</p></div><div class="clinical__label">Clinical Grade Dose</div></div>
+  <div class="clinical__card"><div><span class="clinical__tag">Ingredient 02</span><h2 class="clinical__name">SAG</h2><p class="clinical__desc">The master antioxidant - in the only form your body actually absorbs. Most formulas fake this. We built around it.</p></div><div class="clinical__label">Cellular Protection</div></div>
+  <div class="clinical__card"><div><span class="clinical__tag">Ingredient 03</span><h2 class="clinical__name">FULVIC ACID</h2><p class="clinical__desc">Its only job is making the other two work better. Every milligram gets delivered and supported. Nothing wasted.</p></div><div class="clinical__label">Optimized Absorption</div></div>
+</div></section>
+
+<section class="product"><div class="product__frame"><div class="product__image"><picture><source media="(max-width:1023px)" srcset="images/product-pouch-mobile.webp"/><img src="images/product-pouch-desktop.webp" alt="HANGOVR 180 product pouch" loading="lazy"/></picture></div><div class="product__content"><h3 class="product__headline">THE PROTOCOL.</h3><p class="product__body">Take three capsules before your first drink. Hangovr180 creates a shield that works while you play. By the time you wake up, the work is already done. Built for Tomorrow People.</p><a href="stock-up.html" class="btn-cta-dark">STOCK UP</a></div></div></section>
+</main>
+<footer class="footer"><div class="footer__brand"><img src="images/footer-logo.svg" alt="HANGOVR 180" class="footer__logo-img"/><span class="footer__tm">&reg;</span></div><div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Supplement Disclaimer</a></div><div class="footer__copy">&copy; 2026 HANGOVR 180. ALL RIGHTS RESERVED.</div></footer>
+</body>
+</html>

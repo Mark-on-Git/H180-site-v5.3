@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HANGOVR 180 | FIND US</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet"/>
+<link href="global.css" rel="stylesheet"/>
+<style>
+.hero{position:relative;background:#2c322f;min-height:50vh;display:flex;align-items:center;padding:4rem 2rem;overflow:hidden}
+.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4}
+.hero__content{max-width:64rem;position:relative;z-index:2}
+.hero__headline{font-size:clamp(3.5rem,10vw,7.5rem);line-height:0.85;font-weight:900;text-transform:uppercase;letter-spacing:-0.04em;color:#FFD800}
+.hero__sub{margin-top:1.5rem;font-size:clamp(1.375rem,3vw,1.875rem);font-weight:700;color:#fff;max-width:36rem;letter-spacing:-0.01em}
+.locations{background:#ffffff;padding:6rem 2rem}
+.locations__inner{max-width:80rem;margin:0 auto}
+.locations__headline{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;color:#2c322f;margin-bottom:1rem}
+.locations__sub{font-size:clamp(1.25rem,2.5vw,1.5rem);font-weight:600;color:#5a605c;margin-bottom:4rem;max-width:40rem}
+.locations__grid{display:grid;grid-template-columns:1fr;gap:0}
+.location{display:flex;flex-direction:column;gap:0.75rem;padding:2rem 0;border-bottom:4px solid #dee4df}
+.location:first-child{border-top:4px solid #dee4df}
+.location__info{display:flex;flex-direction:column;gap:0.25rem}
+.location__name{font-size:1.25rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#2c322f}
+.location__address{font-size:0.875rem;font-weight:500;color:#5a605c}
+.location__type{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#C7084F}
+.location__badge{background:#FFD800;padding:0.5rem 1rem;font-size:0.75rem;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;color:#303633;white-space:nowrap;align-self:flex-start}
+.ttt-banner{position:relative;background:#2c322f;min-height:30vh;display:flex;align-items:center;padding:4rem 2rem;overflow:hidden}
+.ttt-banner__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4}
+.ttt-banner__overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.2) 100%)}
+.ttt-banner__text{position:relative;z-index:2;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;color:#FFD800;line-height:0.9}
+.wild{background:#1a1a1a;padding:6rem 2rem}
+.wild__inner{max-width:80rem;margin:0 auto}
+.wild__headline{font-size:clamp(2rem,4vw,3rem);font-weight:700;font-style:italic;letter-spacing:-0.03em;color:#FFD800;margin-bottom:3rem}
+.wild__gallery{display:grid;grid-template-columns:1fr;gap:1rem}
+.wild__card{aspect-ratio:3/2;overflow:hidden}
+.wild__card img{width:100%;height:100%;object-fit:cover}
+.wild__item{display:flex;flex-direction:column}
+.wild__item-label{font-size:1.125rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#FFD800;margin-top:1rem}
+.events{background:#FFD800;padding:6rem 2rem}
+.events__inner{max-width:44rem;margin:0 auto;text-align:center}
+.events__headline{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;color:#2c322f;margin-bottom:1.5rem}
+.events__body{font-size:clamp(1.25rem,2.5vw,1.5rem);font-weight:600;color:#2c322f;margin-bottom:3rem}
+.events__cta{font-size:0.875rem;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;color:#2c322f;margin-bottom:2rem}
+.events__form{display:flex;flex-direction:column;gap:0.5rem;max-width:32rem;margin:0 auto 1.5rem}
+.events__input{flex-grow:1;background:#fff;border:none;color:#303633;padding:1.25rem 1.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:0.875rem;font-family:'Montserrat',sans-serif}
+.events__input::placeholder{color:rgba(48,54,51,0.4)}
+.events__input:focus{outline:none;box-shadow:inset 0 -4px 0 #303633}
+.events__fine{font-size:0.75rem;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color:rgba(48,54,51,0.5)}
+@media(orientation:landscape) and (max-height:500px){.hero{min-height:70vh}.hero__headline{font-size:clamp(2rem,6vw,3.5rem)}.hero__sub{font-size:clamp(1rem,2.5vw,1.25rem)}.ttt-banner{min-height:20vh}}
+@media(min-width:768px){.location{flex-direction:row;align-items:center;justify-content:space-between;gap:0}.events__form{flex-direction:row;gap:0}.wild__gallery{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.hero{padding:4rem 6rem}.locations{padding:6rem}.wild{padding:6rem}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav__logo"><img src="images/logo.svg" alt="HANGOVR 180"/></a>
+  <div class="nav__links"><a href="doa180.html" class="nav__link">DO A 180<span class="nav__clarifier">How does it work?</span></a><a href="whos-in.html" class="nav__link">TOMORROW PEOPLE<span class="nav__clarifier">Who is it for?</span></a><a href="inside.html" class="nav__link">WHAT'S INSIDE<span class="nav__clarifier">Ingredients</span></a><a href="find-us.html" class="nav__link nav__link--active">FIND US<span class="nav__clarifier">Store finder</span></a><a href="stock-up.html" class="nav__link">STOCK UP<span class="nav__clarifier">Check out the shop</span></a></div>
+  <button class="nav__mobile-btn" aria-label="Open menu" onclick="document.getElementById('mm').classList.toggle('is-open');var o=document.getElementById('mm').classList.contains('is-open');this.setAttribute('aria-label',o?'Close menu':'Open menu')"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+</nav>
+<div id="mm" class="mobile-menu"><a href="index.html">HOME</a><span class="mobile-menu__sub"></span><a href="doa180.html">DO A 180</a><span class="mobile-menu__sub">How does it work?</span><a href="whos-in.html">TOMORROW PEOPLE</a><span class="mobile-menu__sub">Who is it for?</span><a href="inside.html">WHAT'S INSIDE</a><span class="mobile-menu__sub">Ingredients</span><a href="find-us.html">FIND US</a><span class="mobile-menu__sub">Store finder</span><a href="stock-up.html">STOCK UP</a><span class="mobile-menu__sub">Check out the shop</span></div>
+<main>
+<section class="hero"><picture><source media="(max-width:767px)" srcset="images/hero-findus-mobile-portrait.webp"/><source media="(max-width:1023px) and (orientation:landscape)" srcset="images/hero-findus-mobile-landscape.webp"/><img src="images/hero-findus-desktop.webp" alt="Women walking past liquor store in daylight" class="hero__img"/></picture><div class="hero__content"><h1 class="hero__headline">FIND US.</h1><p class="hero__sub">Once you've decided tonight will be <strong>SOCIAL</strong>, we're there. Find 180 as your night moves.</p></div></section>
+<section class="locations"><div class="locations__inner"><h2 class="locations__headline">WHERE TO GRAB ONE</h2><p class="locations__sub">We're rolling out across Austin. Here's where you can find HANGOVR 180 right now.</p><div class="locations__grid">
+  <div class="location"><div class="location__info"><span class="location__type">Liquor Store</span><span class="location__name">Twin Liquors - South Lamar</span><span class="location__address">2000 S Lamar Blvd, Austin, TX 78704</span></div><span class="location__badge">In Stock</span></div>
+  <div class="location"><div class="location__info"><span class="location__type">Convenience</span><span class="location__name">Royal Blue Grocery - South Congress</span><span class="location__address">1500 S Congress Ave, Austin, TX 78704</span></div><span class="location__badge">In Stock</span></div>
+  <div class="location"><div class="location__info"><span class="location__type">Golf Course</span><span class="location__name">Lions Municipal Golf Course - Pro Shop</span><span class="location__address">2901 Enfield Rd, Austin, TX 78703</span></div><span class="location__badge">In Stock</span></div>
+  <div class="location"><div class="location__info"><span class="location__type">Bar</span><span class="location__name">Meanwhile Brewing Co.</span><span class="location__address">3901 Promontory Point Dr, Austin, TX 78744</span></div><span class="location__badge">In Stock</span></div>
+  <div class="location"><div class="location__info"><span class="location__type">Liquor Store</span><span class="location__name">Spec's - Brodie Lane</span><span class="location__address">4970 W US Hwy 290 Service Rd, Austin, TX 78735</span></div><span class="location__badge">In Stock</span></div>
+</div></div></section>
+<section class="ttt-banner"><picture><source media="(max-width:767px)" srcset="images/findus-teartaketurnup-mobile-portrait.webp"/><source media="(max-width:1023px) and (orientation:landscape)" srcset="images/findus-teartaketurnup-mobile-landscape.webp"/><img src="images/findus-teartaketurnup-desktop.webp" alt="HANGOVR 180 flags in a bar" class="ttt-banner__img" loading="lazy"/></picture><div class="ttt-banner__overlay"></div><p class="ttt-banner__text">TEAR, TAKE, TURN UP.</p></section>
+<section class="wild"><div class="wild__inner"><h2 class="wild__headline">Spot us in the wild</h2><div class="wild__gallery">
+  <div class="wild__item"><div class="wild__card"><picture><source media="(max-width:1023px)" srcset="images/findus-liquor-store-mobile.webp"/><img src="images/findus-liquor-store-desktop.webp" alt="HANGOVR 180 pouch at liquor store checkout" loading="lazy"/></picture></div><span class="wild__item-label">LIQUOR STORES</span></div>
+  <div class="wild__item"><div class="wild__card"><picture><source media="(max-width:1023px)" srcset="images/findus-convenience-store-mobile.webp"/><img src="images/findus-convenience-store-desktop.webp" alt="HANGOVR 180 on convenience store shelf" loading="lazy"/></picture></div><span class="wild__item-label">CONVENIENCE STORES</span></div>
+  <div class="wild__item"><div class="wild__card"><picture><source media="(max-width:1023px)" srcset="images/findus-golf-proshop-mobile.webp"/><img src="images/findus-golf-proshop-desktop.webp" alt="HANGOVR 180 at golf course pro shop" loading="lazy"/></picture></div><span class="wild__item-label">PRO SHOPS</span></div>
+</div></div></section>
+<section class="events"><div class="events__inner"><h2 class="events__headline">COME TRY ONE.</h2><p class="events__body">Austin, we are showing up to your events! Find us, grab a pouch, see what tomorrow feels like.</p><p class="events__cta">BE FIRST TO KNOW.</p><form class="events__form" onsubmit="event.preventDefault();"><input type="email" class="events__input" placeholder="YOUR EMAIL ADDRESS"/><button type="submit" class="btn-signup">I'm in</button></form><p class="events__fine">No spam. Just drops.</p></div></section>
+</main>
+<footer class="footer"><div class="footer__brand"><img src="images/footer-logo.svg" alt="HANGOVR 180" class="footer__logo-img"/><span class="footer__tm">&reg;</span></div><div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Supplement Disclaimer</a></div><div class="footer__copy">&copy; 2026 HANGOVR 180. ALL RIGHTS RESERVED.</div></footer>
+</body>
+</html>

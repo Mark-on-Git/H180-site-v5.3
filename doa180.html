@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HANGOVR 180 | DO A 180</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet"/>
+<link href="global.css" rel="stylesheet"/>
+<style>
+.hero{position:relative;background:#2c322f;min-height:85vh;display:flex;align-items:center;overflow:hidden}
+.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55}
+.hero__content{position:relative;z-index:2;width:100%;padding:3rem 2rem;display:flex;flex-direction:column;align-items:flex-start}
+.hero__headline-wrap{max-width:42rem;padding:2rem}
+.hero__headline{font-size:clamp(3rem,10vw,5rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;line-height:0.9;color:#FFD800}
+
+.steps{padding:6rem 2rem;background:#f5fbf6}
+.steps__grid{display:grid;grid-template-columns:1fr;gap:3rem}
+.step__meta{margin-bottom:1.5rem;display:flex;flex-direction:column;align-items:flex-start}
+.step__title{font-size:clamp(2.5rem,5vw,3.25rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;color:#2c322f;padding-left:1rem}
+.step__title span{font-weight:400;color:#5a605c}
+.step:nth-child(1) .step__title{border-left:8px solid #2c322f}
+.step:nth-child(2) .step__title{border-left:8px solid #FFD800}
+.step:nth-child(3) .step__title{border-left:8px solid #C7084F}
+.step__img-wrap{aspect-ratio:1;overflow:hidden;background:#dee4df}
+.step:nth-child(1) .step__img-wrap{border:8px solid #2c322f}
+.step:nth-child(2) .step__img-wrap{border:8px solid #FFD800}
+.step:nth-child(3) .step__img-wrap{border:8px solid #C7084F}
+.step__img-wrap img{width:100%;height:100%;object-fit:cover}
+
+.reviews{background:#2c322f;padding:6rem 2rem;overflow:hidden}
+.reviews__inner{max-width:80rem;margin:0 auto}
+.reviews__header{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:3rem}
+.reviews__header-left{display:flex;flex-direction:column;gap:0.5rem}
+.reviews__verdict{display:flex;align-items:center;gap:0.75rem}
+.reviews__verdict-accent{width:1rem;height:1.75rem;background:#C7084F;flex-shrink:0}
+.reviews__verdict-text{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;font-style:italic;color:#FFD800;text-transform:uppercase;letter-spacing:-0.02em;line-height:1}
+.reviews__stats{font-size:clamp(1.75rem,4vw,3rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;line-height:1}
+.reviews__stats-red{color:#C7084F}
+.reviews__stats-white{color:#fff;font-weight:500}
+.reviews__arrows{display:flex;gap:0.5rem;margin-top:0.5rem}
+.reviews__arrow{width:3rem;height:3rem;border:2px solid rgba(255,255,255,0.3);background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;cursor:pointer;transition:all 0.2s}
+.reviews__arrow:hover{border-color:#FFD800;color:#FFD800}
+.reviews__track-wrap{overflow:hidden;position:relative}
+.reviews__track{display:flex;gap:1rem;transition:transform 0.5s ease;cursor:grab}
+.reviews__track.is-dragging{cursor:grabbing;transition:none}
+.review-card{width:85%;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);padding:2rem;display:flex;flex-direction:column;justify-content:space-between;flex-shrink:0;user-select:none}
+.review-card__stars{margin-bottom:1.5rem;font-size:2.5rem;letter-spacing:0;display:flex;align-items:center;gap:0.1rem;flex-wrap:wrap}
+.review-card__rating{font-size:2.5rem;font-weight:900;color:#FFD800;margin-right:0.5rem;flex-shrink:0}
+.review-card__star--filled{color:#FFD800;flex-shrink:0}
+.review-card__star--empty{color:rgba(255,255,255,0.2);flex-shrink:0}
+.review-card__title{font-size:1.125rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#fff;margin-bottom:1rem}
+.review-card__body{font-size:1rem;line-height:1.6;color:rgba(255,255,255,0.8);margin-bottom:2rem;flex-grow:1}
+.review-card__name{font-size:1.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#C7084F}
+.reviews__dots{display:flex;justify-content:center;gap:0.5rem;margin-top:1.5rem}
+.reviews__dot{width:0.5rem;height:0.5rem;border-radius:50%;background:rgba(255,255,255,0.25);border:none;padding:0;cursor:pointer;transition:background 0.2s}
+.reviews__dot--active{background:#FFD800}
+
+.biology{padding:6rem 2rem;background:#ffffff;text-align:center}
+.biology__inner{max-width:64rem;margin:0 auto}
+.biology__headline{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;color:#2c322f;margin-bottom:4rem;line-height:0.9}
+.biology__cols{display:grid;grid-template-columns:1fr;gap:3rem;text-align:left;margin-bottom:4rem}
+.biology__bar{width:4rem;height:0.5rem;margin-bottom:1.5rem}
+.biology__bar--mag{background:#C7084F}
+.biology__bar--yel{background:#FFD800}
+.biology__text{font-size:clamp(1.25rem,2.5vw,1.5rem);font-weight:700;line-height:1.3;text-transform:uppercase}
+.biology__cta{text-align:center}
+
+@media(orientation:landscape) and (max-height:500px){
+  .hero{min-height:80vh}
+  .hero__headline{font-size:clamp(2rem,6vw,3.5rem)}
+}
+
+/* 768px — 2-col layouts, header row */
+@media(min-width:768px){
+  .reviews__header{flex-direction:row;justify-content:space-between;align-items:flex-end}
+  .reviews__arrows{margin-top:0}
+  .biology__cols{grid-template-columns:1fr 1fr;gap:6rem}
+}
+
+/* 768–1199px — 2-card reviews */
+@media(min-width:768px) and (max-width:1199px){
+  .review-card{width:calc((100% - 1rem) / 2)}
+}
+
+/* 1024px — steps 3-col, padding */
+@media(min-width:1024px){
+  .hero__content{padding:4rem}
+  .hero__headline-wrap{padding:2rem 3rem}
+  .hero__headline{font-size:clamp(5rem,10vw,8rem)}
+  .steps{padding:6rem 4rem}
+  .steps__grid{grid-template-columns:1fr 1fr 1fr;gap:1rem}
+  .reviews{padding:6rem 4rem}
+  .biology{padding:10rem 4rem}
+}
+
+/* 1200px — 3-card reviews */
+@media(min-width:1200px){
+  .review-card{width:calc((100% - 2rem) / 3)}
+  .reviews__dots{display:none}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav__logo"><img src="images/logo.svg" alt="HANGOVR 180"/></a>
+  <div class="nav__links">
+    <a href="doa180.html" class="nav__link nav__link--active">DO A 180<span class="nav__clarifier">How does it work?</span></a>
+    <a href="whos-in.html" class="nav__link">TOMORROW PEOPLE<span class="nav__clarifier">Who is it for?</span></a>
+    <a href="inside.html" class="nav__link">WHAT'S INSIDE<span class="nav__clarifier">Ingredients</span></a>
+    <a href="find-us.html" class="nav__link">FIND US<span class="nav__clarifier">Store finder</span></a>
+    <a href="stock-up.html" class="nav__link">STOCK UP<span class="nav__clarifier">Check out the shop</span></a>
+  </div>
+  <button class="nav__mobile-btn" aria-label="Open menu" onclick="document.getElementById('mm').classList.toggle('is-open');var o=document.getElementById('mm').classList.contains('is-open');this.setAttribute('aria-label',o?'Close menu':'Open menu')"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+</nav>
+<div id="mm" class="mobile-menu">
+  <a href="index.html">HOME</a><span class="mobile-menu__sub"></span>
+  <a href="doa180.html">DO A 180</a><span class="mobile-menu__sub">How does it work?</span>
+  <a href="whos-in.html">TOMORROW PEOPLE</a><span class="mobile-menu__sub">Who is it for?</span>
+  <a href="inside.html">WHAT'S INSIDE</a><span class="mobile-menu__sub">Ingredients</span>
+  <a href="find-us.html">FIND US</a><span class="mobile-menu__sub">Store finder</span>
+  <a href="stock-up.html">STOCK UP</a><span class="mobile-menu__sub">Check out the shop</span>
+</div>
+<main>
+<section class="hero">
+  <picture><source media="(max-width:767px)" srcset="images/hero-doa180-mobile-portrait.webp"/><source media="(max-width:1023px) and (orientation:landscape)" srcset="images/hero-doa180-mobile-landscape.webp"/><img src="images/hero-doa180-desktop.webp" alt="Man holding HANGOVR 180 pouch at a bar" class="hero__img"/></picture>
+  <div class="hero__content"><div class="hero__headline-wrap"><h1 class="hero__headline">THIS IS WHAT<br/>SMART LOOKS LIKE.</h1></div></div>
+</section>
+<section class="steps"><div class="steps__grid">
+  <div class="step"><div class="step__meta"><h3 class="step__title">TEAR.</h3></div><div class="step__img-wrap"><picture><source media="(max-width:1023px)" srcset="images/step-tear-mobile.webp"/><img src="images/step-tear-desktop.webp" alt="Hands tearing open a HANGOVR 180 sachet" loading="lazy"/></picture></div></div>
+  <div class="step"><div class="step__meta"><h3 class="step__title">TAKE.</h3></div><div class="step__img-wrap"><picture><source media="(max-width:1023px)" srcset="images/step-take-mobile.webp"/><img src="images/step-take-desktop.webp" alt="Supplement capsules in palm" loading="lazy"/></picture></div></div>
+  <div class="step"><div class="step__meta"><h3 class="step__title">TURN UP.</h3></div><div class="step__img-wrap"><picture><source media="(max-width:1023px)" srcset="images/step-turnup-mobile.webp"/><img src="images/step-turnup-desktop.webp" alt="Crowd at an Austin party" loading="lazy"/></picture></div></div>
+</div></section>
+<section class="reviews"><div class="reviews__inner">
+  <div class="reviews__header">
+    <div class="reviews__header-left"><div class="reviews__verdict"><div class="reviews__verdict-accent"></div><span class="reviews__verdict-text">THE VERDICT.</span></div><div class="reviews__stats"><span style="color:#fff">4.5 STARS, 2000</span><span class="reviews__stats-red">+</span><br/><span class="reviews__stats-white">REVIEWS</span></div></div>
+    <div class="reviews__arrows"><button class="reviews__arrow" id="rev-prev" aria-label="Previous reviews">&larr;</button><button class="reviews__arrow" id="rev-next" aria-label="Next reviews">&rarr;</button></div>
+  </div>
+  <div class="reviews__track-wrap"><div class="reviews__track" id="reviews-track" tabindex="0"></div></div>
+  <div class="reviews__dots" id="reviews-dots"></div>
+</div></section>
+<section class="biology"><div class="biology__inner">
+  <h2 class="biology__headline">BUILT FOR THE BIOLOGY OF A GOOD NIGHT.</h2>
+  <div class="biology__cols">
+    <div><div class="biology__bar biology__bar--mag"></div><p class="biology__text">We didn't invent the night out. We just engineered the morning after. A tomorrow for tomorrow people. 180 tonight. By the time you wake up, the work is done.</p></div>
+    <div><div class="biology__bar biology__bar--yel"></div><p class="biology__text">Pure science. Zero fluff. Just the components your body needs to do its job. Take it when tonight starts. Feel it when tomorrow starts.</p></div>
+  </div>
+  <div class="biology__cta"><a href="whos-in.html" class="btn-cta-light">WHO'S IN</a></div>
+</div></section>
+</main>
+<footer class="footer"><div class="footer__brand"><img src="images/footer-logo.svg" alt="HANGOVR 180" class="footer__logo-img"/><span class="footer__tm">&reg;</span></div><div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Supplement Disclaimer</a></div><div class="footer__copy">&copy; 2026 HANGOVR 180. ALL RIGHTS RESERVED.</div></footer>
+<script>
+(function(){
+  var reviews=[{"name":"Lisa","title":"Actually works!","rating":5,"review":"I didn\u2019t expect it to work, even half expected it to make things worse since I have a sensitive stomach but holy smokes I felt amazing after girls night. My hubby had a day offshore fishing planned the next morning and expected me to cancel but we had a great weekend all around! Definitely recommend! Already ordered."},{"name":"RJ","title":"Works pretty great","rating":5,"review":"I was skeptical but this really did help! You just have to remember to take it before you start drinking or it\u2019s ineffective. I have already told many people about it."},{"name":"Jacqueline","title":"No hangover","rating":5,"review":"I was skeptical, yet this product worked. No hangover. I didn\u2019t feel fatigued, have a headache, or that general ill feeling the morning after. I can\u2019t recommend this to enough of my friends."},{"name":"Mckenzie","title":"Works great!","rating":5,"review":"I\u2019ve tried different brands of these in the past but they never really worked so I was actually surprised at how well these worked! I felt more energetic and less fatigued than usual after taking. Would definitely recommend!"},{"name":"Fay","title":"Give a boost","rating":5,"review":"Gave me a noticeable boost after a long night - no heavy grogginess, just a cleaner, more alert feeling. I like that it focuses on proactive cellular protection, so it feels like I\u2019m doing more than just masking symptoms. Easy to take and didn\u2019t upset my stomach."},{"name":"Bobbie","title":"Kept the hangover away","rating":5,"review":"I decided to try it before a bachelorette party. I usually don\u2019t drink much - more than two drinks is rare for me - but that night I definitely indulged. The next morning, I was amazed at how good I felt. This was an absolute life saver!"},{"name":"Emma","title":"It actually works with no side jitters!","rating":5,"review":"The girls came over for a cookout and we got into the wine and a shot or two of tequila. I had no headache and no fatigue. I\u2019ve tried this type of product before, but the amount of caffeine in them gives me that zoomie feeling that I hate. This stuff had no side effects at all."},{"name":"Ramona","title":"Awesome","rating":5,"review":"As I\u2019ve gotten older 2 drinks can give me a headache and this really helped prevent that."},{"name":"Herbie","title":"What hangover....","rating":5,"review":"I have tried many remedies to recover from a hangover. This one is the best I\u2019ve used. Shorter recovery time, more energy, and even waking up on time. I highly recommend this product for those who go out and like to party."},{"name":"Brittany","title":"It works!","rating":5,"review":"I was skeptical, but after a night out with the girls, I woke up and realized this stuff is amazing! No groggy head, or sick stomach! I felt so much more energized as well! I love this stuff!"},{"name":"Jessica","title":"Great","rating":5,"review":"I got this as a sample. Tried it twice. Then purchased more because I loved that I was waking up more refreshed even if I had not been drinking the night before. Great product."},{"name":"Leslie","title":"Was Skeptic - Not Anymore!","rating":5,"review":"I followed the instructions and after a girls\u2019 night out, I felt noticeably better than I ever had! I was more productive, less foggy, didn\u2019t have a headache or tummy troubles, none of it! I am a believer and it\u2019s already in my cart to buy!"},{"name":"Irina","title":"Morning definitely brighter","rating":5,"review":"I did feel much better and alert in the morning after a small party. I consumed a few glasses of wine and my overall function was way better. Just three capsules before the drinking and you are set."},{"name":"Lee","title":"Great & will recommend","rating":5,"review":"Greatly helped with not getting a terrible hangover the next day. No negative side effects. Definitely helped eliminate nausea and headache the day after."},{"name":"Jack","title":"Performed better than most","rating":4,"review":"I\u2019ve tried a few similar supplements, and Hangovr-180 performed better than most. I took it before drinking, and while I didn\u2019t feel completely unaffected the next day, I definitely felt more functional - less groggy, more clear-headed."},{"name":"Jennifer","title":"Decent Hangover Protection","rating":4,"review":"Started getting hangovers once I reached a certain phase of life and thought I\u2019d try this. I took the product with water shortly before drinking. I woke up at my normal time without a headache, so this worked pretty well."},{"name":"Evan","title":"Much better","rating":5,"review":"I felt less dehydrated and more alert the next day. Noticeable difference in overall well-being and way less discomfort. Less of that yucky hangover feeling."},{"name":"Yvonne","title":"It works","rating":5,"review":"We aren\u2019t heavy drinkers, but now and then we party. Last time we took Hangovr 180, and felt rested and not sluggish the next morning from drinking the night before. It works!"}];
+  var track=document.getElementById('reviews-track'),dotsWrap=document.getElementById('reviews-dots'),html='';
+  for(var i=0;i<reviews.length;i++){var r=reviews[i],stars='';for(var s=0;s<5;s++){stars+=s<r.rating?'<span class="review-card__star--filled">&#9733;</span>':'<span class="review-card__star--empty">&#9734;</span>';}html+='<div class="review-card"><div><div class="review-card__stars"><span class="review-card__rating">'+r.rating+'.0</span>'+stars+'</div><h4 class="review-card__title">'+r.title+'</h4><p class="review-card__body">\u201C'+r.review+'\u201D</p></div><p class="review-card__name">\u2013 '+r.name.toUpperCase()+'</p></div>';}
+  track.innerHTML=html;
+  var pos=0,autoTimer;
+  function getPerPage(){var w=window.innerWidth;return w>=1200?3:w>=768?2:1}
+  function totalPages(){return Math.ceil(reviews.length/getPerPage())}
+  function buildDots(){var tp=totalPages(),d='';for(var i=0;i<tp;i++)d+='<button class="reviews__dot'+(i===pos?' reviews__dot--active':'')+'" data-page="'+i+'" aria-label="Page '+(i+1)+'"></button>';dotsWrap.innerHTML=d;var btns=dotsWrap.querySelectorAll('.reviews__dot');for(var b=0;b<btns.length;b++)btns[b].addEventListener('click',function(){pos=parseInt(this.getAttribute('data-page'));slide();updateDots();resetAuto()})}
+  function updateDots(){var d=dotsWrap.querySelectorAll('.reviews__dot');for(var i=0;i<d.length;i++)d[i].classList.toggle('reviews__dot--active',i===pos)}
+  function slide(){var cards=track.querySelectorAll('.review-card');if(!cards.length)return;var pp=getPerPage(),w=cards[0].offsetWidth,g=16,o=pos*(pp*(w+g));track.style.transform='translateX(-'+o+'px)'}
+  function next(){pos=(pos+1)%totalPages();slide();updateDots()}
+  function prev(){pos=(pos-1+totalPages())%totalPages();slide();updateDots()}
+  function resetAuto(){clearInterval(autoTimer);autoTimer=setInterval(next,60000)}
+  document.getElementById('rev-next').addEventListener('click',function(){next();resetAuto()});
+  document.getElementById('rev-prev').addEventListener('click',function(){prev();resetAuto()});
+  // Touch swipe
+  var startX=0,isDragging=false;
+  track.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;isDragging=true},{passive:true});
+  track.addEventListener('touchend',function(e){if(!isDragging)return;isDragging=false;var d=startX-e.changedTouches[0].clientX;if(Math.abs(d)>50){d>0?next():prev();resetAuto()}},{passive:true});
+  // Mouse drag
+  var mouseStartX=0,mouseDragging=false;
+  track.addEventListener('mousedown',function(e){mouseStartX=e.clientX;mouseDragging=true;track.classList.add('is-dragging');e.preventDefault()});
+  document.addEventListener('mouseup',function(e){if(!mouseDragging)return;mouseDragging=false;track.classList.remove('is-dragging');var d=mouseStartX-e.clientX;if(Math.abs(d)>50){d>0?next():prev();resetAuto()}});
+  document.addEventListener('mousemove',function(e){if(mouseDragging)e.preventDefault()});
+  // Arrow keys
+  track.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){next();resetAuto();e.preventDefault()}else if(e.key==='ArrowLeft'){prev();resetAuto();e.preventDefault()}});
+  window.addEventListener('resize',function(){if(pos>=totalPages())pos=0;buildDots();slide()});
+  buildDots();autoTimer=setInterval(next,60000);
+})();
+</script>
+</body>
+</html>
