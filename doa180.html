@@ -44,8 +44,8 @@
 .reviews__track{display:flex;gap:1rem;transition:transform 0.5s ease;cursor:grab}
 .reviews__track.is-dragging{cursor:grabbing;transition:none}
 .review-card{width:85%;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);padding:2rem;display:flex;flex-direction:column;justify-content:space-between;flex-shrink:0;user-select:none}
-.review-card__stars{margin-bottom:1.5rem;font-size:1.75rem;letter-spacing:0;display:flex;align-items:center;gap:0.1rem}
-.review-card__rating{font-size:2rem;font-weight:900;color:#FFD800;margin-right:0.5rem;flex-shrink:0}
+.review-card__stars{margin-bottom:1.5rem;font-size:2.5rem;letter-spacing:0;display:flex;align-items:center;gap:0.1rem}
+.review-card__rating{font-size:2.5rem;font-weight:900;color:#FFD800;margin-right:0.5rem;flex-shrink:0}
 .review-card__star--filled{color:#FFD800}
 .review-card__star--empty{color:rgba(255,255,255,0.2)}
 .review-card__title{font-size:1.125rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#fff;margin-bottom:1rem}
@@ -64,6 +64,10 @@
 .biology__bar--yel{background:#FFD800}
 .biology__text{font-size:clamp(1.25rem,2.5vw,1.5rem);font-weight:700;line-height:1.3;text-transform:uppercase}
 .biology__cta{text-align:center}
+
+@media(max-width:767px){
+  .review-card__stars{font-size:2rem}
+}
 
 @media(orientation:landscape) and (max-height:500px){
   .hero{min-height:80vh}
@@ -166,9 +170,10 @@
   document.getElementById('rev-next').addEventListener('click',function(){next();resetAuto()});
   document.getElementById('rev-prev').addEventListener('click',function(){prev();resetAuto()});
   // Touch swipe
-  var startX=0,isDragging=false;
-  track.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;isDragging=true},{passive:true});
-  track.addEventListener('touchend',function(e){if(!isDragging)return;isDragging=false;var d=startX-e.changedTouches[0].clientX;if(Math.abs(d)>50){d>0?next():prev();resetAuto()}},{passive:true});
+  var touchStartX=0,touchStartY=0,touchDragging=false,touchDir=null;
+  track.addEventListener('touchstart',function(e){touchStartX=e.touches[0].clientX;touchStartY=e.touches[0].clientY;touchDragging=true;touchDir=null},{passive:true});
+  track.addEventListener('touchmove',function(e){if(!touchDragging)return;if(!touchDir){var dx=Math.abs(e.touches[0].clientX-touchStartX),dy=Math.abs(e.touches[0].clientY-touchStartY);if(dx>5||dy>5)touchDir=dx>dy?'h':'v';}if(touchDir==='h')e.preventDefault();},{passive:false});
+  track.addEventListener('touchend',function(e){if(!touchDragging)return;touchDragging=false;if(touchDir!=='h')return;var d=touchStartX-e.changedTouches[0].clientX;if(Math.abs(d)>30){d>0?next():prev();resetAuto()}},{passive:true});
   // Mouse drag
   var mouseStartX=0,mouseDragging=false;
   track.addEventListener('mousedown',function(e){mouseStartX=e.clientX;mouseDragging=true;track.classList.add('is-dragging');e.preventDefault()});
